@@ -14,7 +14,7 @@ interface User {
 }
 export default function Users() {
     const {loading, error, data} = useQuery(USERS_QUERY)
-    if (loading) return <p>Loading...</p>
+    if(loading) return <p>Loading...</p>
     if(error) return <p>{error.message}</p>
     return (
         <div>
