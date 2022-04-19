@@ -3,6 +3,8 @@ import { ErrorMessage, Field, Form, Formik } from "formik"
 import React from "react"
 import { Link, useNavigate } from "react-router-dom"
 import * as Yup from "yup"
+import TwitterLogo from "../styles/assets/twitter-logo.png"
+import "../styles/login.css"
 
 const LOGIN_MUTATION = gql`
 	mutation login($email: String!, $password: String!) {
@@ -33,7 +35,8 @@ function Login() {
 
 	return (
 		<div className="container">
-			<h3>Login</h3>
+			<img src={TwitterLogo} alt = 'logo' style={{width:"50px"}} className = "logo" />
+			<h3>Log in to Face Twitter</h3>
 			<Formik
 				initialValues={initialValues}
 				validationSchema={validationSchema}
@@ -57,6 +60,10 @@ function Login() {
 					</button>
 				</Form>
 			</Formik>
+			<div className = "register">
+				<h4>Dont have an account?</h4>
+				<Link to="/signup">Sign up</Link>
+			</div>
 		</div>
 	)
 }
